@@ -61,8 +61,8 @@
   
     
     "outbounds": [
-      { "tag": "🍤 手动选择", "type": "selector", "outbounds": ["🏠 家宽","🍔 白头鹰", "🍨 蟑螂","🇨🇳 秃子", "🍣 脚盆鸡", "🥘 鱼尾狮", "{all}"],"filter": [{ "action": "exclude", "keywords": ["网站|地址|剩余|过期|时间|有效"] }] },
-      { "tag": "🏠 家宽", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["家宽|HKT|HKBN|Hinet|Apol|M1|CTM|Softbank|KDDI|SoNet|Biglobe|SK|KT|LG|Verizon|AT&T|T-mobile|Frontier|Videotron|BT|Virgin|Vodafone|SFR|Turk Telekom|Telekom Malaysia|TM|VNPT|DIGI|JSC Kazakhtelecom|Mongolia Telecom|CAFE|Umniah"] }] },
+      { "tag": "🍤 手动选择", "type": "selector", "outbounds": [ "🏠 家宽","🍔 白头鹰", "🍨 蟑螂","🇨🇳 秃子", "🍣 脚盆鸡", "🥘 鱼尾狮", "{all}" ],"filter": [{ "action": "exclude", "keywords": [ "网站|地址|剩余|过期|时间|有效" ] }] },
+      { "tag": "🏠 家宽", "type": "selector", "outbounds": [ "{all}" ], "filter": [{ "action": "include", "keywords": ["家宽|HKT|HKBN|Hinet|Apol|M1|CTM|Softbank|KDDI|SoNet|Biglobe|SK|KT|LG|Verizon|AT&T|T-mobile|Frontier|Videotron|BT|Virgin|Vodafone|SFR|Turk Telekom|Telekom Malaysia|TM|VNPT|DIGI|JSC Kazakhtelecom|Mongolia Telecom|CAFE|Umniah" ] }] },
       { "tag": "💬 OpenAi", "type": "selector", "outbounds": ["🍤 手动选择", "🏠 家宽", "{all}"], "filter": [{ "action": "include", "keywords": ["M1|Softbank|KDDI|SoNet|Biglobe|Verizon|AT&T|T-mobile|Frontier|Videotron|BT|Virgin|Vodafone|SFR"] }] },
       { "tag": "🎥 Netflix", "type": "selector", "outbounds": ["🍤 手动选择", "🏠 家宽","🍔 白头鹰", "🍨 蟑螂","🇨🇳 秃子", "🍣 脚盆鸡", "🥘 鱼尾狮"] },
       { "tag": "🎥 Disney+", "type": "selector", "outbounds": ["🍤 手动选择", "🏠 家宽","🍔 白头鹰", "🍨 蟑螂","🇨🇳 秃子", "🍣 脚盆鸡", "🥘 鱼尾狮"] },
@@ -92,36 +92,6 @@
       { "tag": "💡 全球直连", "type": "direct" },
       { "tag": "dns-out", "type": "dns" }
     ],
-
-
-    "outbound_providers": [
-      {
-        "tag": "amy",
-        "type": "http",
-        "healthcheck_url": "https://www.gstatic.com/generate_204",
-        "healthcheck_interval": "10m",
-        "download_url": "https://lifcfw.xyz/?L1N1YnNjcmlwdGlvbi9DbGFzaD9zaWQ9NjQ3NjgmdG9rZW49eUlkZmtvQ1pHQ0ombW09NzQ4NTQmNWMyMjRmZWEwOWIxNDZhYjkz",
-        "path": "./yamls/amy.yaml",
-        "download_ua": "clash.meta",
-        "download_interval": "24h",
-        "download_detour": "DIRECT",
-        "override_dialer": { "domain_strategy": "prefer_ipv6" }
-      },
-      {
-        "tag": "mesl",
-        "type": "http",
-        "healthcheck_url": "https://www.gstatic.com/generate_204",
-        "healthcheck_interval": "10m",
-        "download_url": "https://911tg3rs.com/api/v1/client/subscribe?token=79370bd2d597cf042c5dfdf61e27aaa4",
-        "path": "./yamls/mesl.yaml",
-        "download_ua": "clash.meta",
-        "download_interval": "24h",
-        "download_detour": "DIRECT",
-        "override_dialer": { "domain_strategy": "prefer_ipv6" }
-      }
-    ],
-  
-    
     "route": {
           "auto_detect_interface": true,
           "final": "🐟 漏网之鱼",
@@ -154,7 +124,6 @@
         { "rule_set": "geosite-geolocation-!cn", "outbound": "🍤 手动选择" },
         { "rule_set": ["geoip-cn", "geosite-cn"], "outbound": "💡 全球直连" }
       ],
-      
       "rule_set": [
         { "tag": "geosite-openai", "type": "remote", "format": "binary", "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Toperlock/sing-box-geosite/main/rule/OpenAI.srs", "download_detour": "💡 全球直连" },
         { "tag": "geosite-anthropic", "type": "remote", "format": "binary", "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/anthropic.srs", "download_detour": "💡 全球直连" },
